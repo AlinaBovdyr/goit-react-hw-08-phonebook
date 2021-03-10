@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #dbddd2;
+  /* background-color: #dbddd2; */
 }
 
 code {
@@ -28,4 +28,10 @@ ol {
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
