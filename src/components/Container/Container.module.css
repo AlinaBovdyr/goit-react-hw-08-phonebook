@@ -9,6 +9,17 @@
   padding-right: 15px;
 }
 
+.section {
+  background-image: linear-gradient(
+      rgba(15, 29, 45, 0.4),
+      rgba(15, 29, 45, 0.4)
+    ),
+    url(../../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
 .container {
   position: relative;
   max-width: 600px;

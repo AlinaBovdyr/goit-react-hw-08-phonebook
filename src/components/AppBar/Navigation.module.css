@@ -25,3 +25,17 @@
 .activeLink {
   color: tomato;
 }
+
+.userMenu {
+  display: flex;
+  align-items: center;
+}
+
+.headerBtn {
+  margin: 0;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+}

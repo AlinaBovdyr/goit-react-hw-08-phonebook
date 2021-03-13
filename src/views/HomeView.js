@@ -1,10 +1,10 @@
 import React from 'react';
+import s from './HomeView.module.css';
+
 
 const HomeView = () => {
     return (
-        <div>
-            <h1>Hello, user!</h1>
-        </div>
+        <h1 className={s.title}>Welcome to Phonebook!</h1>
     );
 };
 
