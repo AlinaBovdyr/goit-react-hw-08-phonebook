@@ -3,10 +3,10 @@ import s from './Container.module.css';
 
 export default function Container({ children }) {
   return (
-    <div className={s.mainContainer}>
-      <section className={s.section}>
+    <section className={s.section}>
+      <div className={s.mainContainer}>
         {children}
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }

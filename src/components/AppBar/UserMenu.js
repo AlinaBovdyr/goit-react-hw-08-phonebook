@@ -1,15 +1,26 @@
 import React from 'react';
-import Button from '../UI/Button';
+import { connect } from 'react-redux';
+import { authSelectors, authOperations } from '../../redux/auth';
+import defaultAvatar from '../../img/default-avatar.png';
 import s from './Navigation.module.css';
 
 const UserMenu = ({avatar, name, onLogout}) => {
     return (
         <div className={s.userMenu}>
-            <img src={avatar} alt={name} width="32" />
+            <img className={s.avatar} src={avatar} alt={name} />
             <span className={s.link}>Welcome, {name}</span>
-            <Button className={s.headerBtn} onClick={onLogout} title="Logout"/>
+            <button className={s.headerBtn} type="button" onClick={onLogout}>Logout</button>
         </div>
     );
 };
 
-export default UserMenu;
+const mapStateToProps = (state) => ({
+    name: authSelectors.getUserName(state),
+    avatar: defaultAvatar,
+});
+
+const mapDispatchToProps = {
+    onLogout: authOperations.logout,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);

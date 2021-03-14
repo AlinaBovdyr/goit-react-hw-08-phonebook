@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
-import { fetchContact } from '../redux/contacts-operations';
-import { getAllContacts, getError, getIsLoading } from '../redux/selectors';
+import { fetchContact } from '../redux/contacts/contacts-operations';
+import { getAllContacts, getError, getIsLoading } from '../redux/contacts/selectors';
 
 import Container from '../components/Container';
 import Header from '../components/Header';

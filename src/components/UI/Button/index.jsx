@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import s from './Button.module.css';
 
 const Button = ({ type, title, className, ...restProps }) => {
-    const classList = [className, s.button].join(' ');
+    const classList = [s.button, className].join(' ');
     return (
         <button
             className={classList}

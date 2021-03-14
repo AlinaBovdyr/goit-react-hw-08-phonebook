@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addContact, getAllContacts } from '../../redux';
+import { addContact, getAllContacts } from '../../redux/contacts';
 import s from './ContactForm.module.css';
 
 class ContactForm extends Component {

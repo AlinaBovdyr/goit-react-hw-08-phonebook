@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getError } from '../../../redux';
+import { getError } from '../../../redux/contacts';
 import PropTypes from 'prop-types';
 import s from './Error.module.css';
 

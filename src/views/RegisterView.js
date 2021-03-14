@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { authOperations } from '../redux/auth';
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
 import s from './Auth.module.css';
 
-export default class LoginView extends Component {
+class RegisterView extends Component {
   state = {
     name: '',
-    number: '',
+    email: '',
+    password: '',
   };
 
   handleChange = e => {
@@ -18,18 +21,18 @@ export default class LoginView extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { name, number } = this.state;
 
-    this.props.onLogin(name, number);
+    this.props.onRegister(this.state);
 
     this.setState({
       name: '',
-      number: '',
+      email: '',
+      password: '',
     });
   };
 
   render() {
-    const { name, number } = this.state;
+    const { name, email, password } = this.state;
 
     return (
         <div className={s.formWrapper}>
@@ -38,6 +41,7 @@ export default class LoginView extends Component {
                 <Input
                     label="Name"
                     name="name"
+                    value={name}
                     placeholder=" "
                     autoComplete="name"
                     onChange={this.handleChange}
@@ -46,15 +50,17 @@ export default class LoginView extends Component {
                 <Input
                     label="E-mail"
                     name="email"
+                    value={email}
                     placeholder=" "
                     autoComplete="email"
                     onChange={this.handleChange}
                     required
                 />
                 <Input
-                    name="password"
                     label="Password"
-                      placeholder=" "
+                    name="password"
+                    value={password}
+                    placeholder=" "
                     autoComplete="new-password"
                     type="password"
                     onChange={this.handleChange}
@@ -64,4 +70,10 @@ export default class LoginView extends Component {
       </div>
     );
   }
-}
+};
+
+const mapDispatchToProps = {
+  onRegister: authOperations.register,
+};
+
+export default connect(null, mapDispatchToProps)(RegisterView);
