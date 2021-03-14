@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import routes from './routes';
-import NotFoundView from '../views/NotFoundView';
 
 const HomeView = lazy(() =>
   import('../views/HomeView.js' /* webpackChunkName: "home-page" */),
@@ -41,7 +40,6 @@ const Router = () => {
               component={ContactsView} 
               redirectTo={routes.login} 
             />
-            <Route component={NotFoundView} />
       </Switch>
     </Suspense>
   );
