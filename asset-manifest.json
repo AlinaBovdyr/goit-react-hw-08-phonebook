@@ -12,8 +12,8 @@
     "login-page.js": "/goit-react-hw-08-phonebook/static/js/login-page.3b6670d4.chunk.js",
     "login-page.js.map": "/goit-react-hw-08-phonebook/static/js/login-page.3b6670d4.chunk.js.map",
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.db40d3b9.chunk.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.567057e3.chunk.js",
-    "main.js.map": "/goit-react-hw-08-phonebook/static/js/main.567057e3.chunk.js.map",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.68f201dc.chunk.js",
+    "main.js.map": "/goit-react-hw-08-phonebook/static/js/main.68f201dc.chunk.js.map",
     "register-page.css": "/goit-react-hw-08-phonebook/static/css/register-page.3c092787.chunk.css",
     "register-page.js": "/goit-react-hw-08-phonebook/static/js/register-page.c9df7f60.chunk.js",
     "register-page.js.map": "/goit-react-hw-08-phonebook/static/js/register-page.c9df7f60.chunk.js.map",
@@ -38,7 +38,6 @@
     "static/media/bin.13a6d35c.svg": "/goit-react-hw-08-phonebook/static/media/bin.13a6d35c.svg",
     "static/media/cross.54c64051.svg": "/goit-react-hw-08-phonebook/static/media/cross.54c64051.svg",
     "static/media/default-avatar.49abd8f3.png": "/goit-react-hw-08-phonebook/static/media/default-avatar.49abd8f3.png",
-    "static/media/not_found.c1d9e774.jpg": "/goit-react-hw-08-phonebook/static/media/not_found.c1d9e774.jpg",
     "static/media/phone.a2c70ce5.svg": "/goit-react-hw-08-phonebook/static/media/phone.a2c70ce5.svg",
     "static/media/plus.72234b8e.svg": "/goit-react-hw-08-phonebook/static/media/plus.72234b8e.svg"
   },
@@ -47,6 +46,6 @@
     "static/css/7.de71bbd8.chunk.css",
     "static/js/7.814356b4.chunk.js",
     "static/css/main.db40d3b9.chunk.css",
-    "static/js/main.567057e3.chunk.js"
+    "static/js/main.68f201dc.chunk.js"
   ]
 }
