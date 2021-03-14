@@ -7,7 +7,7 @@ import s from './Header.module.css';
 const Header = ({onClick}) => {
     return (
         <div className={s.wrapper}>
-          <h2 className={s.title}>Contacts</h2>
+          <h2 className={s.title}>Add new contact</h2>
           <IconButton
             className={s.addBtn}
             onClick={onClick}

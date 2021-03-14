@@ -22,14 +22,11 @@
 
 .container {
   position: relative;
-  max-width: 600px;
+  max-width: 800px;
   min-height: 300px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
-  background-image: url(../../img/telephone-blue-background.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .titleWrapper {

@@ -25,9 +25,9 @@ p {
 
 ol {
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  width: 100%;
+  width: 90%;
 }
 
 img {

@@ -1,5 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 import routes from './routes';
 import NotFoundView from '../views/NotFoundView';
 
@@ -13,18 +15,32 @@ const LoginView = lazy(() =>
   import('../views/LoginView.js' /* webpackChunkName: "login-page" */),
 );
 
-const ContactsView = lazy(() => 
+const ContactsView = lazy(() =>
   import('../views/ContactsView.js' /* webpackChunkName: "contacts-page" */)
-)
+);
 
 const Router = () => {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
         <Switch>
-            <Route path={routes.home} exact component={HomeView} />
-            <Route path={routes.register} component={RegisterView} />
-            <Route path={routes.login} component={LoginView} />
-            <Route path={routes.contacts} component={ContactsView} />
+            <PublicRoute path={routes.home} exact component={HomeView} />
+            <PublicRoute 
+              path={routes.register}
+              restricted
+              redirectTo={routes.contacts} 
+              component={RegisterView} 
+            />
+            <PublicRoute
+              path={routes.login} 
+              restricted 
+              redirectTo={routes.contacts} 
+              component={LoginView} 
+            />
+            <PrivateRoute 
+              path={routes.contacts} 
+              component={ContactsView} 
+              redirectTo={routes.login} 
+            />
             <Route component={NotFoundView} />
       </Switch>
     </Suspense>
