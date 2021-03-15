@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addContact, getAllContacts } from '../../redux/contacts';
+import { toast } from 'react-toastify';
 import s from './ContactForm.module.css';
 
 class ContactForm extends Component {
@@ -22,11 +23,15 @@ class ContactForm extends Component {
     const { contacts } = this.props;
 
     if (contacts.some(contact => contact.name === name)) {
-      this.props.onSubmit(name);
-      return
+      this.setState({
+        name: '',
+        number: '',
+      });
+      return toast.error(`${name} is already in contacts!`, {position: "top-center",});
     }
 
     this.props.onAddContact(name, number);
+    toast.success('The contact was added', {position: "top-left"});
     this.props.onSave();
 
     this.setState({

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CSSTransition } from 'react-transition-group';
+import { toast } from 'react-toastify';
 import { authOperations, authSelectors } from '../redux/auth';
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
-import Notice from '../components/Notice';
 
 import s from './Auth.module.css';
 import '../styles/animations/NoticeAppear.css';
@@ -13,7 +12,6 @@ class LoginView extends Component {
   state = {
     email: '',
     password: '',
-    error: false,
   };
 
   handleChange = e => {
@@ -34,39 +32,15 @@ class LoginView extends Component {
     });
 
     if (!this.props.isAuthenticated) {
-      this.showNotice();
+      return toast.error(`${this.props.errorMessage}`)
     }
-
-  };
-
-  showNotice = () => {
-    this.setState({
-      error: true,
-    });
-    
-    setTimeout(() => {
-      this.setState({ error: false, })
-    }, 2000);
   };
 
   render() {
-    const { email, password, error } = this.state;
-    const { errorMessage } = this.props;
+    const { email, password } = this.state;
 
     return (
       <div className={s.formWrapper}>
-        
-        {errorMessage && 
-          <CSSTransition
-            in={error}
-            unmountOnExit
-            classNames="notice"
-            timeout={250}
-          >
-            <Notice text={errorMessage} />
-          </CSSTransition>
-        }
-
         <h2 className={s.title}>Login</h2>
         <form className={s.form} onSubmit={this.handleSubmit}>
             <Input

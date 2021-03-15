@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 import { authOperations } from './redux/auth';
 import AppBar from './components/AppBar/AppBar';
 import Router from './Router/Router';
@@ -12,10 +14,13 @@ class App extends Component {
 
   render() {
     return (
-      <Container>
+      <>
         <AppBar />
-        <Router />
-      </Container>
+        <Container>
+          <Router />
+          <ToastContainer autoClose={2000}/>
+        </Container>
+      </>
     );
   }
 };

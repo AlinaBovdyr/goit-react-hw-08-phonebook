@@ -11,7 +11,6 @@ import Filter from '../components/Filter';
 import ContactList from '../components/ContactList';
 import Sorter from '../components/Sorter';
 import Modal from '../components/UI/Modal/Modal';
-import Notice from '../components/Notice';
 import LoaderView from '../components/UI/Loader';
 import ErrorView from '../components/UI/Error';
 
@@ -37,20 +36,8 @@ class ContactsView extends PureComponent {
     }));
   };
 
-  showNotice = (contactName) => {
-    this.setState({
-        text: `${contactName} is already in contacts!`,
-        error: true,
-        showModal: false,
-    });
-    
-    setTimeout(() => {
-        this.setState({ error: false, })
-    }, 2000);
-  }
-
   render() {
-    const { showModal, error, text } = this.state;
+    const { showModal } = this.state;
     const { contacts, isLoading, isError } = this.props;
 
     return (
@@ -58,16 +45,6 @@ class ContactsView extends PureComponent {
         <Header onClick={this.toggleModal} />
 
         {isLoading && <LoaderView />}
-        
-        <CSSTransition
-          in={error}
-          unmountOnExit
-          classNames="notice"
-          timeout={250}
-        >
-          <Notice text={text} />
-        </CSSTransition>
-        
 
         <CSSTransition
           in={showModal}
@@ -76,7 +53,7 @@ class ContactsView extends PureComponent {
           timeout={500}
         >
           <Modal onClose={this.toggleModal}>
-            <ContactForm onSave={this.toggleModal} onSubmit={this.showNotice} />
+            <ContactForm onSave={this.toggleModal} />
           </Modal>
         </CSSTransition>
 

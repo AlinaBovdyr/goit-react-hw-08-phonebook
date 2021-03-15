@@ -5,8 +5,7 @@
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 20px 15px;
 }
 
 .section {
@@ -17,6 +16,8 @@
     url(../../img/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   height: 100vh;
 }
 

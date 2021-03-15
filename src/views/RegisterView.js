@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CSSTransition } from 'react-transition-group';
+import { toast } from 'react-toastify';
 import { authOperations, authSelectors } from '../redux/auth';
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
-import Notice from '../components/Notice';
 
 import s from './Auth.module.css';
 import '../styles/animations/NoticeAppear.css';
@@ -14,7 +13,6 @@ class RegisterView extends Component {
     name: '',
     email: '',
     password: '',
-    error: false,
   };
 
   handleChange = e => {
@@ -35,39 +33,16 @@ class RegisterView extends Component {
       password: '',
     });
 
-    if (this.state.password.length < 7) {
-      this.showNotice();
-    }
-  };
-
-  showNotice = () => {
-    this.setState({
-      error: true,
-    });
-    
-    setTimeout(() => {
-      this.setState({ error: false, })
-    }, 2000);
+    if (!this.props.isAuthenticated) {
+      return toast.error(`${this.props.errorMessage}`)
+    } 
   };
 
   render() {
-    const { name, email, password, error } = this.state;
-    const { errorMessage } = this.props;
+    const { name, email, password } = this.state;
 
     return (
       <div className={s.formWrapper}>
-        
-        {errorMessage && 
-          <CSSTransition
-            in={error}
-            unmountOnExit
-            classNames="notice"
-            timeout={250}
-          >
-            <Notice text={errorMessage} />
-          </CSSTransition>
-        }
-
         <h2 className={s.title}>Registration</h2>
         <form className={s.form} onSubmit={this.handleSubmit}>
             <Input
@@ -106,6 +81,7 @@ class RegisterView extends Component {
 
 const mapStateToProps = (state) => ({
   errorMessage: authSelectors.getError(state),
+  isAuthenticated: authSelectors.getIsAuthenticated(state),
 });
 
 const mapDispatchToProps = {
