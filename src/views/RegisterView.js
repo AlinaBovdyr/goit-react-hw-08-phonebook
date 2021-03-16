@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
-import { authOperations, authSelectors } from '../redux/auth';
+import { authOperations } from '../redux/auth';
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
 
@@ -32,10 +31,6 @@ class RegisterView extends Component {
       email: '',
       password: '',
     });
-
-    if (!this.props.isAuthenticated) {
-      return toast.error(`${this.props.errorMessage}`)
-    } 
   };
 
   render() {
@@ -79,13 +74,8 @@ class RegisterView extends Component {
   }
 };
 
-const mapStateToProps = (state) => ({
-  errorMessage: authSelectors.getError(state),
-  isAuthenticated: authSelectors.getIsAuthenticated(state),
-});
-
 const mapDispatchToProps = {
   onRegister: authOperations.register,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterView);
+export default connect(null, mapDispatchToProps)(RegisterView);

@@ -18,7 +18,7 @@ class App extends Component {
         <AppBar />
         <Container>
           <Router />
-          <ToastContainer autoClose={2000}/>
+          <ToastContainer autoClose={3000}/>
         </Container>
       </>
     );

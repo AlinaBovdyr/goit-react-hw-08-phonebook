@@ -1,5 +1,6 @@
 import axios from 'axios';
 import authActions from './auth-actions';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
@@ -20,7 +21,10 @@ const register = credentials => async dispatch => {
         token.set(data.token);
         dispatch(authActions.registerSuccess(data));
     } catch (error) {
+        const { statusText, status, data } = error.response;
+        const errorMessage = `${status} ${statusText}: ${data.message}`;
         dispatch(authActions.registerError(error.message));
+        return toast.error(errorMessage);
     };
 };
 
@@ -32,7 +36,10 @@ const login = credentials => async dispatch => {
         token.set(data.token);
         dispatch(authActions.loginSuccess(data));
     } catch (error) {
+        const { statusText, status } = error.response;
+        const errorMessage = `${status} ${statusText}`;
         dispatch(authActions.loginError(error.message));
+        return toast.error(errorMessage);
     };
 };
 

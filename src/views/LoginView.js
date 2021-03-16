@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
-import { authOperations, authSelectors } from '../redux/auth';
+import { authOperations } from '../redux/auth';
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
 
@@ -30,10 +29,6 @@ class LoginView extends Component {
       email: '',
       password: '',
     });
-
-    if (!this.props.isAuthenticated) {
-      return toast.error(`${this.props.errorMessage}`)
-    }
   };
 
   render() {
@@ -68,13 +63,8 @@ class LoginView extends Component {
   }
 };
 
-const mapStateToProps = (state) => ({
-  errorMessage: authSelectors.getError(state),
-  isAuthenticated: authSelectors.getIsAuthenticated(state),
-});
-
 const mapDispatchToProps = {
   onLogin: authOperations.login,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginView);
+export default connect(null, mapDispatchToProps)(LoginView);
