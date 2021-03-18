@@ -5,19 +5,24 @@ import { authSelectors } from '../redux/auth';
 const PrivateRoute = ({
     component: Component,
     isAuthenticated,
+    hasToken,
     redirectTo,
     ...routeProps
 }) => (
     <Route
         {...routeProps}
-        render={props =>
-            isAuthenticated ? <Component {...props} /> : <Redirect to={redirectTo} />
+        render={props => 
+            isAuthenticated || hasToken
+                ? <Component {...props} />
+                : <Redirect to={redirectTo} />
+            
         }
     />
 );
 
 const mapStateToProps = state => ({
     isAuthenticated: authSelectors.getIsAuthenticated(state),
+    hasToken: authSelectors.getToken(state),
 });
 
 export default connect(mapStateToProps)(PrivateRoute);

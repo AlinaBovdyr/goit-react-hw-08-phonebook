@@ -47,7 +47,6 @@ class RegisterView extends Component {
                 placeholder=" "
                 autoComplete="name"
                 onChange={this.handleChange}
-                required
             />
             <Input
                 label="E-mail"
@@ -56,7 +55,6 @@ class RegisterView extends Component {
                 placeholder=" "
                 autoComplete="email"
                 onChange={this.handleChange}
-                required
             />
             <Input
                 label="Password"

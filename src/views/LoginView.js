@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { authOperations } from '../redux/auth';
+import { authOperations, authSelectors } from '../redux/auth';
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
 
@@ -45,7 +45,6 @@ class LoginView extends Component {
                 placeholder=" "
                 autoComplete="email"
                 onChange={this.handleChange}
-                required
             />
             <Input
                 label="Password"

@@ -8,9 +8,9 @@ const LoaderView = () => {
         <Loader
             className={s.loader}
             type="Grid"
-            color="#3968a5"
-            height={100}
-            width={100}
+            color="#181838"
+            height={200}
+            width={200}
             timeout={3000}
         />
   );

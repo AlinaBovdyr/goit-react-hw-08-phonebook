@@ -3,6 +3,7 @@ import { Switch } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import routes from './routes';
+import Preloader from '../components/UI/Loader/Preloader';
 
 const HomeView = lazy(() =>
   import('../views/HomeView.js' /* webpackChunkName: "home-page" */),
@@ -20,7 +21,7 @@ const ContactsView = lazy(() =>
 
 const Router = () => {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<Preloader />}>
         <Switch>
             <PublicRoute path={routes.home} exact component={HomeView} />
             <PublicRoute 

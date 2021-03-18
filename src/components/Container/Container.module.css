@@ -9,6 +9,7 @@
 }
 
 .section {
+  min-height: 100vh;
   background-image: linear-gradient(
       rgba(15, 29, 45, 0.4),
       rgba(15, 29, 45, 0.4)
@@ -18,16 +19,12 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  height: 100vh;
 }
 
 .container {
   position: relative;
   max-width: 800px;
-  min-height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
+  margin: 30px auto;
 }
 
 .titleWrapper {

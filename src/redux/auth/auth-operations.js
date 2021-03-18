@@ -22,7 +22,8 @@ const register = credentials => async dispatch => {
         dispatch(authActions.registerSuccess(data));
     } catch (error) {
         const { statusText, status, data } = error.response;
-        const errorMessage = `${status} ${statusText}: ${data.message}`;
+        const message = data.message ? data.message : 'User with this email is already registered'
+        const errorMessage = `${status} ${statusText}: ${message}`;
         dispatch(authActions.registerError(error.message));
         return toast.error(errorMessage);
     };
@@ -67,7 +68,6 @@ const getCurrentUser = () => async (dispatch, getState) => {
 
     try {
         const { data } = await axios.get('/users/current');
-        console.log(data);
         dispatch(authActions.getCurrentUserSuccess(data));
     } catch (error) {
         dispatch(authActions.getCurrentUserError(error.message));
